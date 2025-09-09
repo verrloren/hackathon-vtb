@@ -1,0 +1,369 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+	overflow-y: scroll;
+}
+
+html, body {
+	background-color: #000;
+	margin: 0;
+  padding: 0;
+}
+
+:root {
+	--radial-ellipse-background: linear-gradient(270deg, #f9e7bb 0%, #e97cbb 50%, #3d47d9 100%);
+	/* --radial-ellipse-background: linear-gradient(270deg, #87698A 0%, #3B2D8F 50%, #110567 100%); */
+}
+@keyframes rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+@keyframes saturation {
+	0% {
+		filter: saturate(0%) brightness(0%);
+	}
+	100% {
+		filter: saturate(100%) brightness(100%);
+	}
+}
+
+.flex-center {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.flex-center-col {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.flex-between {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+.flex-between-col {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+}
+
+/* .radial-ellipse {	
+	background: var(--radial-ellipse-background);
+	border-radius: 50%;
+} */
+
+.radial-ellipse {
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: inset -10px -10px 30px rgba(0, 0, 0, 0.5), inset 10px 10px 30px rgba(255, 255, 255, 0.2);
+		animation: saturation 5s ease-in-out, rotate 120s linear infinite;
+		background: radial-gradient(circle at 30% 30%, #87698A, #3B2D8F, #110567);
+}
+
+.radial-ellipse-dashboard-black {
+  position: fixed; /* Ensure it has a position value other than static */
+  z-index: 0; /* Set a lower z-index */
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: inset -10px -10px 30px rgba(0, 0, 0, 0.5), inset 10px 10px 30px rgba(255, 255, 255, 0.2);
+  animation: saturation 5s ease-in-out, rotate 120s linear infinite;
+  /* background: radial-gradient(circle at 30% 30%, #AD7561, #3B2D8F, #110567); */
+}
+.radial-ellipse-dashboard {
+  position: fixed; /* Ensure it has a position value other than static */
+  z-index: 0; /* Set a lower z-index */
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: inset -10px -10px 30px rgba(0, 0, 0, 0.5), inset 10px 10px 30px rgba(255, 255, 255, 0.2);
+  animation: saturation 5s ease-in-out, rotate 120s linear infinite;
+  background: radial-gradient(circle at 30% 30%, #87698A, #3B2D8F, #110567);
+  /* background: radial-gradient(circle at 30% 30%, #AD7561, #3B2D8F, #110567); */
+}
+.radial-ellipse-dashboard:before {
+  content: "";
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 182px;
+  opacity: 0.12;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.noise:before {
+  content: "";
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 182px;
+  opacity: 0.12;
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.radial-ellipse-upload-project-files {
+  box-shadow: inset -10px -10px 30px rgba(0, 0, 0, 0.4), inset 10px 10px 30px rgba(255, 255, 255, 0.2);
+	animation: saturation 5s ease-in-out;
+}
+/* .radial-ellipse-upload-project-files {
+  box-shadow: inset -10px -10px 30px rgba(0, 0, 0, 0.5), inset 10px 10px 30px rgba(255, 255, 255, 0.2);
+	animation: saturation 5s ease-in-out;
+}
+ */
+
+.radial-ellipse-upload {
+  position: relative;
+  width: 30vw;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: inset -10px -10px 30px rgba(0, 0, 0, 0.5), inset 10px 10px 30px rgba(255, 255, 255, 0.2);
+	animation: saturation 5s ease-in-out, rotate 120s linear infinite;
+}
+
+.radial-ellipse-upload .rotating-background {
+  background: radial-gradient(circle at 30% 30%, #87698A, #3B2D8F, #110567);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  animation: rotate 120s linear infinite;
+  z-index: -10;
+  transition: filter 0.4s ease; /* Add transition for the default state */
+}
+
+.radial-ellipse-upload .rotating-background::before {
+  content: "";
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 600'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 182px;
+  opacity: 0.12;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.radial-ellipse-upload:hover .rotating-background {
+  filter: brightness(1.1);
+}
+
+.text-radial-gradient {
+  background: radial-gradient(circle at center, #f1f1f1, #888, #f1f1f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+
+@layer base {
+  :root {
+		--radius: 0.5rem;
+		--sidebar-background: 0 0% 98%;
+		--sidebar-foreground: 240 5.3% 26.1%;
+		--sidebar-primary: 240 5.9% 10%;
+		--sidebar-primary-foreground: 0 0% 98%;
+		--sidebar-accent: 240 4.8% 95.9%;
+		--sidebar-accent-foreground: 240 5.9% 10%;
+		--sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Chart palette mapped to violet scale */
+    --chart-1: var(--violet-1);
+    --chart-2: var(--violet-2);
+    --chart-3: var(--violet-3);
+    --chart-4: var(--violet-4);
+    --chart-5: var(--violet-5);
+    --chart-6: var(--violet-6);
+    --chart-7: var(--violet-7);
+    --chart-8: var(--violet-8);
+    --chart-9: var(--violet-9);
+    --chart-10: var(--violet-10);
+    --chart-11: var(--violet-11);
+
+		--violet-1: oklch(0.97 0.02 294);
+		--violet-2: oklch(0.94 0.03 295);
+		--violet-3: oklch(0.89 0.05 293);
+		--violet-4: oklch(0.81 0.10 294);
+		--violet-5: oklch(0.71 0.16 294);
+		--violet-6: oklch(0.61 0.22 293);
+		--violet-7: oklch(0.54 0.25 293);
+		--violet-8: oklch(0.49 0.24 293);
+		--violet-9: oklch(0.43 0.21 293);
+		--violet-10: oklch(0.38 0.18 294);
+		--violet-11: oklch(0.28 0.14 291);
+	}
+  .theme {
+		--animate-shiny-text: shiny-text 8s infinite;
+	}
+  .dark {
+		--sidebar-background: 240 5.9% 10%;
+		--sidebar-foreground: 240 4.8% 95.9%;
+		--sidebar-primary: 224.3 76.3% 48%;
+		--sidebar-primary-foreground: 0 0% 100%;
+		--sidebar-accent: 240 3.7% 15.9%;
+		--sidebar-accent-foreground: 240 4.8% 95.9%;
+		--sidebar-border: 240 3.7% 15.9%;
+		--sidebar-ring: 217.2 91.2% 59.8%;
+    /* Chart palette mapped to violet scale (dark) */
+    --chart-1: var(--violet-1);
+    --chart-2: var(--violet-2);
+    --chart-3: var(--violet-3);
+    --chart-4: var(--violet-4);
+    --chart-5: var(--violet-5);
+    --chart-6: var(--violet-6);
+    --chart-7: var(--violet-7);
+    --chart-8: var(--violet-8);
+    --chart-9: var(--violet-9);
+    --chart-10: var(--violet-10);
+    --chart-11: var(--violet-11);
+	}
+}
+
+::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+  height: 12px; /* Height of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #000; /* Background color of the scrollbar track */
+  border: 1px solid #000; /* Border color of the scrollbar track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #333; /* Color of the scrollbar thumb */
+  border: 3px solid #000; /* Border color of the scrollbar thumb */
+  border-radius: 10px; /* Rounded corners of the scrollbar thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Color of the scrollbar thumb on hover */
+}
+
+::-webkit-scrollbar-corner {
+  background: #000; /* Background color of the scrollbar corner */
+}
+
+.filepond--panel-root {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.filepond--drop-label {
+  color: transparent !important;
+}
+
+/* Remove any visual FilePond elements */
+.filepond--credits {
+  display: none !important;
+}
+
+/* From Uiverse.io by SelfMadeSystem */ 
+.dots {
+  width: var(--size);
+  height: var(--size);
+  position: relative;
+}
+
+.dot {
+  width: var(--size);
+  height: var(--size);
+  animation: dwl-dot-spin calc(var(--speed) * 5) infinite linear both;
+  animation-delay: calc(var(--i) * var(--speed) / (var(--dot-count) + 2) * -1);
+  rotate: calc(var(--i) * var(--spread) / (var(--dot-count) - 1));
+  position: absolute;
+}
+
+.dot::before {
+  content: "";
+  display: block;
+  width: var(--dot-size);
+  height: var(--dot-size);
+  background-color: var(--color);
+  border-radius: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  bottom: 0;
+  left: 50%;
+}
+
+@keyframes dwl-dot-spin {
+  0% {
+    transform: rotate(0deg);
+    animation-timing-function: cubic-bezier(0.390, 0.575, 0.565, 1.000);
+    opacity: 1;
+  }
+
+  2% {
+    transform: rotate(20deg);
+    animation-timing-function: linear;
+    opacity: 1;
+  }
+
+  30% {
+    transform: rotate(180deg);
+    animation-timing-function: cubic-bezier(0.445, 0.050, 0.550, 0.950);
+    opacity: 1;
+  }
+
+  41% {
+    transform: rotate(380deg);
+    animation-timing-function: linear;
+    opacity: 1;
+  }
+
+  69% {
+    transform: rotate(520deg);
+    animation-timing-function: cubic-bezier(0.445, 0.050, 0.550, 0.950);
+    opacity: 1;
+  }
+
+  76% {
+    opacity: 1;
+  }
+
+  76.1% {
+    opacity: 0;
+  }
+
+  80% {
+    transform: rotate(720deg);
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@theme inline {
+  @keyframes shiny-text {
+  0%, 90%, 100% {
+    background-position: calc(-100% - var(--shiny-width)) 0;
+		}
+  30%, 60% {
+    background-position: calc(100% + var(--shiny-width)) 0;
+		}
+	}
+}
